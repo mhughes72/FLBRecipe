@@ -23,7 +23,7 @@ class IngredientListTableController: UITableViewController {
         
     
         ingredientListManager.delegate = self
-        ingredientListManager.fetchRecipe(ingredients: ingredients)
+//        ingredientListManager.fetchRecipe(ingredients: ingredients)
         tableView.rowHeight = 100.0
         
         //GPT IMAGE REQ
@@ -62,6 +62,7 @@ class IngredientListTableController: UITableViewController {
 
         let recipe = recipesListArray[indexPath.row]
         
+        print("missing: \(recipe.missedIngredients)")
 
 //        print("recipe: \(recipe.missedIngredients.originalName)")
 //        print("missedIngredients \(missedIngredients)")
@@ -136,7 +137,7 @@ extension IngredientListTableController: IngredientListManagerDelegate {
 //                print("\(r.originalName)\r")
             }
         }
-        print("missed: \(missedIngredients)")
+//        print("missed: \(missedIngredients)")
         
 //        for ing in recipes.missedIngredients {
 //            print("MISS: NAME - \(recipe.title) -> \(ing.originalName)\r\r")

@@ -45,10 +45,7 @@ struct IngredientListManager {
                 performRequest(with: url)
             }
         }
-//        let urlString = "\(recipeURL)findByIngredients?ingredients=\(String(describing: ingredients))&apiKey=\(apiKey)"
-//        print("apiKey: \(String(describing: apiKey))")
-//        print("urlString \(urlString)")
-//        performRequest(with: urlString)
+
     }
     
     
