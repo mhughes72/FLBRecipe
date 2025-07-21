@@ -1,0 +1,51 @@
+//
+//  .gitignore
+//  Flash Chat iOS13
+//
+//  Created by Matt Hughes on 2025-07-10.
+//  Copyright © 2025 Angela Yu. All rights reserved.
+//
+
+# Xcode
+*.xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.moved-aside
+*.xcscmblueprint
+
+# Derived Data and Build
+DerivedData/
+build/
+
+# CocoaPods
+Pods/
+
+# Carthage
+Carthage/
+Carthage/Build/
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Package.resolved
+
+# Other
+.DS_Store
+*.swp
+*.lock
+
+# Xcode project files to ignore
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+
+
+# Xcode server
+*.xcscmblueprint
+GoogleService-Info.plist  # Add this if you want to avoid checking in secrets
+Secrets.xcconfig
+
+                                            *.psd
+                                            *.ai
+                                            *.mov
