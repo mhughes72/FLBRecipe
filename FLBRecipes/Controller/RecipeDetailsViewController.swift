@@ -26,7 +26,7 @@ class RecipeDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         // TAKE OUT FOR FULL FUNCTIONALLITY
-//        recipeId = 643789
+        recipeId = 643789
         
         recipeDetailsManager.delegate = self
         recipeDetailsManager.fetchRecipe(recipeId: recipeId!)
