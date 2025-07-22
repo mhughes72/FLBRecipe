@@ -23,14 +23,14 @@ class IngredientListTableController: UITableViewController {
         
     
         ingredientListManager.delegate = self
-//        ingredientListManager.fetchRecipe(ingredients: ingredients)
+        ingredientListManager.fetchRecipe(ingredients: ingredients)
         tableView.rowHeight = 100.0
         
         //GPT IMAGE REQ
-        if let myImage = UIImage(named: "fridge05") {
-            analyzeImageWithChatGPT(myImage, ingredientListManager: ingredientListManager)
-        }
-        
+//        if let myImage = UIImage(named: "fridge05") {
+//            analyzeImageWithChatGPT(myImage, ingredientListManager: ingredientListManager)
+//        }
+//        
         
         //GPT TEXT REQ
 //        fetchGPTResponse(prompt: "What's the capital of France?") { response in
@@ -62,8 +62,17 @@ class IngredientListTableController: UITableViewController {
 
         let recipe = recipesListArray[indexPath.row]
         
-        print("missing: \(recipe.missedIngredients)")
+        
+        missedIngredients[recipe.id] = []
+        
+        
+        for ingredient in recipe.missedIngredients {
+            missedIngredients[recipe.id]?.append("\(ingredient.originalName)")
+//            print("missing: \(i.originalName)")
 
+        }
+
+        
 //        print("recipe: \(recipe.missedIngredients.originalName)")
 //        print("missedIngredients \(missedIngredients)")
         cell.ingredientNameLabel.text = ("\(recipe.id)")
@@ -99,7 +108,7 @@ class IngredientListTableController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // showRecipeDetails
-        print("Button Clicked")
+        print("Button Clicked: \(missedIngredients)")
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
              tableView.deselectRow(at: indexPath, animated: true)
@@ -116,6 +125,7 @@ class IngredientListTableController: UITableViewController {
            let indexPath = tableView.indexPathForSelectedRow {
             
             let selectedRecipeId = recipesListArray[indexPath.row].id
+            destinationVC.missedIngredients = missedIngredients
             destinationVC.recipeId = selectedRecipeId
         }
     }

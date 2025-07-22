@@ -13,6 +13,9 @@ struct RecipeDetailsModel {
     let imageUrl: String
     let title: String
     let summary: String
+    let analyzedInstructions: [Steps]
+    let extendedIngredients: [ExtendedIngredients]
+
     
 }
 
@@ -23,6 +26,9 @@ extension RecipeDetailsModel {
         self.imageUrl = recipe.image
         self.summary = recipe.summary
         //        self.imageURL = URL(string: recipe.image) ?? URL(string: "https://example.com/fallback.jpg")!
+        self.analyzedInstructions = recipe.analyzedInstructions
+        self.extendedIngredients = recipe.extendedIngredients
     }
+    
     
 }
